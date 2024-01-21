@@ -78,6 +78,11 @@ function redirectToLoginpage() {
   window.location.href = 'login.html';
 }
 
+
+function redirectToSigninpage() {
+  // Redirect to a new page (replace 'homepage.html' with your desired page)
+  window.location.href = 'signin.html';
+}
   
 
 
