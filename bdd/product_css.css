@@ -1,0 +1,73 @@
+/* Your styles for navigation bar, product details, etc. */
+/* Example styles for reference */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0e7dce;
+    color: black;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav {
+    height: 40px; /* Set a fixed height for the navigation bar */
+    line-height: 40px; /* Center content vertically */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    color: white;
+    border: 2px solid #FFF;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin-right: 20px;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #0e7dce;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  
+  .main-content {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .product-details {
+    margin-top: 50px;
+  }
+  
+  .product-details img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .rating {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  

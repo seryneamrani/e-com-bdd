@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Store</title>
+  <link rel="stylesheet" href="acceuil_css.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.css">
+  <style>
+    /* Custom styles for the slider and handles */
+    #priceSlider {
+
+      background-color: #fff; /* White slider background */
+    }
+
+    /* Custom styles for handles */
+    .noUi-handle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: #4285f4; /* Blue handle */
+      border: 2px solid #fff; /* White border */
+      cursor: pointer;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Custom styles for active handles */
+    .noUi-active .noUi-handle {
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Custom styles for slider bar */
+    .noUi-connect {
+      background: #4285f4; /* Blue track between handles */
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="acceuil.html">Home Page</a></li>
+      <li><a href="wishlist.html">Wishlist</a></li>
+      <li><a href="basket.html">Basket</a></li>
+    </ul>
+    <button onclick="redirectToLoginpage()">Login</button>
+  </nav>
+
+
+  <div class="container">
+
+
+    <aside class="sidebar">
+      <h2>Filters</h2>
+      <div class="filter-options">
+        <label for="colorFilter">Choose a Color:</label>
+        <select id="colorFilter" name="colorFilter">
+          <option value="Any">Any</option>
+          <option value="red">Red</option>
+          <option value="orange">Orange</option>
+          <option value="yellow">Yellow</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="indigo">Indigo</option>
+          <option value="violet">Violet</option>
+          <option value="white">White</option>
+          <option value="black">Black</option>
+          <option value="pink">Pink</option>
+        </select>
+
+
+        <h3>Price</h3>
+        <div id="priceSlider"></div>
+        <div class="price-range-values">
+          <span id="minPriceDisplay">$0</span> - <span id="maxPriceDisplay">$5000</span>
+        </div>
+
+        <h3>Manufacturer</h3>
+        <label for="manufacturerFilter">Select Manufacturer:</label>
+        <select id="manufacturerFilter" name="manufacturerFilter">
+          <option value="">All Manufacturers</option>
+          <option value="Apple">Apple</option>
+          <option value="Samsung">Samsung</option>
+          <option value="Sony">Sony</option>
+          <option value="LG Electronics">LG Electronics</option>
+          <option value="Panasonic">Panasonic</option>
+          <option value="Microsoft">Microsoft</option>
+          <option value="Dell">Dell</option>
+          <option value="HP (Hewlett-Packard)">HP (Hewlett-Packard)</option>
+          <option value="Lenovo">Lenovo</option>
+          <option value="Acer">Acer</option>
+          <option value="ASUS">ASUS</option>
+          <option value="Toshiba">Toshiba</option>
+          <option value="Canon">Canon</option>
+          <option value="Nikon">Nikon</option>
+          <option value="Fujitsu">Fujitsu</option>
+          <option value="IBM">IBM</option>
+          <option value="Intel">Intel</option>
+          <option value="AMD (Advanced Micro Devices)">AMD (Advanced Micro Devices)</option>
+          <option value="Qualcomm">Qualcomm</option>
+          <option value="Huawei">Huawei</option>
+        </select>
+      </div>
+    </aside>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.js"></script>
+  <script>
+    const priceSlider = document.getElementById('priceSlider');
+    const minPriceDisplay = document.getElementById('minPriceDisplay');
+    const maxPriceDisplay = document.getElementById('maxPriceDisplay');
+
+    noUiSlider.create(priceSlider, {
+      start: [0, 5000],
+      connect: true,
+      range: {
+        'min': 0,
+        'max': 5000
+      }
+    });
+
+    priceSlider.noUiSlider.on('update', function (values) {
+      minPriceDisplay.textContent = `$${values[0]}`;
+      maxPriceDisplay.textContent = `$${values[1]}`;
+    });
+  </script>
+
+    <main class="main-content">
+      <h1>Welcome!</h1>
+
+      <div class="product-module">
+        <h2>Products</h2>
+        <div class="product-grid" id="productGrid">
+          <!-- Product items will be dynamically inserted here -->
+        </div>
+      </div>
+      </main>
+  </div>
+
+  <script src="acceuil_js.js"></script> <!-- JavaScript file for handling products -->
+</body>
+</html>
