@@ -56,6 +56,7 @@ const wishlistProducts = [
         <p>Price: ${product.price}</p>
         <p>${product.description}</p>
         <p>Availability: ${product.availability}</p>
+        <button class="delete-button" onclick="deleteProduct(${index})">Delete</button>
       `;
   
       wishlistGrid.appendChild(productElement);
