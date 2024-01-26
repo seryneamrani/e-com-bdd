@@ -56,7 +56,13 @@ function renderProducts() {
       <p>Price: ${product.price}</p>
       <p>${product.description}</p>
       <p>Availability: ${product.availability}</p>
+
     `;
+
+    productElement.onclick = function() {
+      // Redirect to the product page (replace 'product.html' with your desired page)
+      window.location.href = 'product.html';
+    };
 
     productGrid.appendChild(productElement);
   });
@@ -83,6 +89,7 @@ function redirectToSigninpage() {
   // Redirect to a new page (replace 'homepage.html' with your desired page)
   window.location.href = 'signin.html';
 }
-  
+
+
 
 
