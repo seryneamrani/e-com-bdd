@@ -1,5 +1,5 @@
 // Sample wishlist product data (to simulate fetched data)
-const wishlistProducts = [
+const basketProducts = [
     { 
       image: 'product1.jpg',
       name: 'Product 1',
@@ -43,13 +43,15 @@ const wishlistProducts = [
   ];
   
   // Function to render wishlist products dynamically
-  function renderWishlistProducts() {
-    const wishlistGrid = document.getElementById('wishlistGrid');
-    wishlistProducts.forEach(product => {
+  function renderBasketProducts() {
+    const basketGrid = document.getElementById('basketGrid');
+    basketGrid.innerHTML = ''; // Clear the existing content
+  
+    basketProducts.forEach((product, index) => {
       const productElement = document.createElement('div');
       productElement.classList.add('product');
   
-      // Creating HTML structure for each wishlist product
+      // Creating HTML structure for each basket product
       productElement.innerHTML = `
         <img src="${product.image}" alt="${product.name}">
         <h4>${product.name}</h4>
@@ -59,15 +61,21 @@ const wishlistProducts = [
         <button class="delete-button" onclick="deleteProduct(${index})">Delete</button>
       `;
   
-      wishlistGrid.appendChild(productElement);
+      basketGrid.appendChild(productElement);
     });
   }
-  
+   
+  function deleteProduct(index) {
+    basketProducts.splice(index, 1); // Remove the product at the specified index
+    renderBasketProducts(); // Re-render the basket after deletion
+  }
+   
+
   // Call the function to render wishlist products after the document has been loaded
-  document.addEventListener('DOMContentLoaded', function() {
-    renderWishlistProducts();
+  document.addEventListener('DOMContentLoaded', function () {
+    renderBasketProducts();
   });
-  
+
 
 
 

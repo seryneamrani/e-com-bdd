@@ -45,7 +45,9 @@ const wishlistProducts = [
   // Function to render wishlist products dynamically
   function renderWishlistProducts() {
     const wishlistGrid = document.getElementById('wishlistGrid');
-    wishlistProducts.forEach(product => {
+    wishlistGrid.innerHTML = ''; // Clear the existing content
+  
+    wishlistProducts.forEach((product, index) => {
       const productElement = document.createElement('div');
       productElement.classList.add('product');
   
@@ -56,12 +58,16 @@ const wishlistProducts = [
         <p>Price: ${product.price}</p>
         <p>${product.description}</p>
         <p>Availability: ${product.availability}</p>
+        <button class="delete-button" onclick="deleteWishlistProduct(${index})">Delete</button>
       `;
   
       wishlistGrid.appendChild(productElement);
     });
   }
-  
+  function deleteWishlistProduct(index) {
+    wishlistProducts.splice(index, 1); // Remove the product at the specified index
+    renderWishlistProducts(); // Re-render the wishlist after deletion
+  }
   // Call the function to render wishlist products after the document has been loaded
   document.addEventListener('DOMContentLoaded', function() {
     renderWishlistProducts();
